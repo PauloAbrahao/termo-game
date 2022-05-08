@@ -3,7 +3,7 @@ import { useState } from "react";
 const useWordle = (solution) => {
   const [turn, setTurn] = useState(0);
   const [currentGuess, setCurrentGuess] = useState("");
-  const [guesses, setGuesses] = useState([]); // each guess is an array
+  const [guesses, setGuesses] = useState([...Array(6)]); // each guess is an array
   const [history, setHistory] = useState([]); // each guess is a string
   const [isCorrect, setIsCorrect] = useState(false);
 
@@ -39,7 +39,27 @@ const useWordle = (solution) => {
   // add a new guess to the guesses state
   // update the isCorrect state if the guess is correct
   // add one to the turn state
-  const addNewGuess = () => {};
+  const addNewGuess = (formattedGuess) => {
+    if (currentGuess === solution) {
+      setIsCorrect(true);
+    }
+
+    setGuesses((prevGuesses) => {
+      let newGuesses = [...prevGuesses];
+      newGuesses[turn] = formattedGuess;
+      return newGuesses;
+    });
+
+    setHistory((prevHistory) => {
+      return [...prevHistory, currentGuess];
+    });
+
+    setTurn((prevTurn) => {
+      return prevTurn + 1;
+    });
+
+    setCurrentGuess("");
+  };
 
   // handle keyup event & track current guess
   // if user presses enter, add the new guess
@@ -63,15 +83,15 @@ const useWordle = (solution) => {
         console.log("word must be 5 characters long");
         return;
       }
+      const formatted = formatGuess();
+      addNewGuess(formatted);
     }
-
-    const formatted = formatGuess();
-    console.log(formatted);
 
     if (key === "Backspace") {
       setCurrentGuess((prev) => prev.slice(0, -1));
       return;
     }
+
     if (/^[A-Za-z]$/.test(key)) {
       if (currentGuess.length < 5) {
         setCurrentGuess((prev) => prev + key);
