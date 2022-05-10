@@ -14,8 +14,10 @@ const useWordle = (solution) => {
 
     let solutionArray = [...solution];
 
+    // Percorre o array de palavras que você digitou
+    // então percorre o array de letras da palavra e por padrão as define como 'grey'
     let formattedGuess = [...currentGuess].map((l) => {
-      return { key: l, color: "grey" };
+      return { key: l, color: "grey"};
     });
 
     //find any green letters
@@ -33,6 +35,7 @@ const useWordle = (solution) => {
         solutionArray[solutionArray.indexOf(l.key)] = null;
       }
     });
+
     return formattedGuess;
   };
 
@@ -47,6 +50,7 @@ const useWordle = (solution) => {
     setGuesses((prevGuesses) => {
       let newGuesses = [...prevGuesses];
       newGuesses[turn] = formattedGuess;
+      
       return newGuesses;
     });
 
@@ -83,6 +87,7 @@ const useWordle = (solution) => {
         console.log("word must be 5 characters long");
         return;
       }
+
       const formatted = formatGuess();
       addNewGuess(formatted);
     }
