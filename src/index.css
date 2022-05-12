@@ -1,8 +1,10 @@
 body {
   font-family: Segoe Ui;
   text-align: center;
+  color: #f6f6f6;
   font-size: 1em;
   margin: 0;
+  background-color: #0e1c26;
 }
 
 h1 {
@@ -10,7 +12,7 @@ h1 {
   padding: 20px 0;
   border-bottom: 1px solid #eee;
   margin: 0 0 30px 0;
-  color: #333;
+  color: #eee;
 }
 
 /* rows */
@@ -25,7 +27,7 @@ h1 {
   display: block;
   width: 60px;
   height: 60px;
-  border: 1px solid #bbb;
+  border: 2px solid #f6f6f6;
   border-radius: 20%;
   margin: 4px;
   text-align: center;
@@ -36,16 +38,85 @@ h1 {
 }
 
 .row > div.green {
-  background: #5ac85a;
-  border-color: #5ac85a;
+  --background: #3AA394;
+  --border-color: #3AA394;
+  animation: flip 0.5s ease forwards;
 }
 
 .row > div.grey {
-  background: #a1a1a1;
-  border-color: #a1a1a1;
+  --background: #a1a1a1;
+  --border-color: #a1a1a1;
+  animation: flip 0.5s ease forwards;
 }
 
 .row > div.yellow {
-  background: #e2cc68;
-  border-color: #e2cc68;
+  --background: #f19e18;
+  --border-color: #f19e18;
+  animation: flip 0.5s ease forwards;
+}
+
+.row > div:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.row > div:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+.row > div:nth-child(4) {
+  animation-delay: 1s;
+}
+
+.row > div:nth-child(5) {
+  animation-delay: 1.3s;
+}
+
+.row.current > div.filled {
+  animation: bounce 0.2s ease-in-out forwards;
+}
+
+/* ANIMATIONS */
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0);
+    background: #fff;
+    border-color: #333;
+  }
+
+  45% {
+    transform: rotateY(90deg);
+    background: #fff;
+    border-color: #333;
+  }
+
+  55% {
+    transform: rotateY(90deg);
+    background: var(--background);
+    border-color: var(--border-color);
+    color: #eee;
+  }
+
+  100% {
+    transform: rotateY(0);
+    background: var(--background);
+    border-color: var(--border-color);
+    color: #eee;
+  }
+}
+
+@keyframes bounce {
+  0% { 
+    transform: scale(1);
+    border-color: #ddd;
+  }
+
+  50% { 
+    transform: scale(1.2);
+  }
+  
+  100% {
+    transform: scale(1);
+    border-color: #f6f6f646;
+  }
 }
