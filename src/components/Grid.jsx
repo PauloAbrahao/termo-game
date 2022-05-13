@@ -1,7 +1,6 @@
 import React from "react";
 import Row from "./Row";
 
-
 const Grid = ({ currentGuess, guesses, turn }) => {
   return (
     <div>

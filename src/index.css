@@ -9,9 +9,10 @@ body {
 
 h1 {
   font-size: 1.2em;
-  padding: 20px 0;
-  border-bottom: 1px solid #eee;
-  margin: 0 0 30px 0;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #083D47;
+  margin: 0 0 10px 0;
   color: #eee;
 }
 
@@ -25,13 +26,13 @@ h1 {
 
 .row > div {
   display: block;
-  width: 60px;
-  height: 60px;
-  border: 2px solid #f6f6f6;
-  border-radius: 20%;
-  margin: 4px;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #083D47;
+  border-radius: 15%;
+  margin: 2.6px;
   text-align: center;
-  line-height: 60px;
+  line-height: 50px;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 2.5em;
@@ -73,6 +74,63 @@ h1 {
 
 .row.current > div.filled {
   animation: bounce 0.2s ease-in-out forwards;
+}
+
+.keypad {
+  max-width: 500px;
+  margin: 15px auto;
+}
+
+.keypad > div {
+  margin: 4px;
+  width: 40px;
+  height: 50px;
+  background: #083D47;
+  display: inline-block;
+  border-radius: 6px;
+  line-height: 50px;
+}
+
+.keypad > div.green {
+  background: #3AA394;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+
+.keypad > div.yellow {
+  background: #f19e18;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+
+.keypad > div.grey {
+  background: #a1a1a1;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+
+.modal {
+  background: #0e1c26;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.modal div {
+  max-width: 480px;
+  background: #083D47;
+  padding: 30px;
+  border-radius: 10px;
+  margin: 10% auto;
+}
+.modal .solution {
+  color: #2fc2ac;
+  font-weight: bold;
+  font-size: 1rem;
+  margin: auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* ANIMATIONS */
@@ -117,6 +175,6 @@ h1 {
   
   100% {
     transform: scale(1);
-    border-color: #f6f6f646;
+    border-color: #083e4973;
   }
 }
