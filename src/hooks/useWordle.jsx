@@ -6,7 +6,7 @@ const useWordle = (solution) => {
   const [guesses, setGuesses] = useState([...Array(6)]); // each guess is an array
   const [history, setHistory] = useState([]); // each guess is a string
   const [isCorrect, setIsCorrect] = useState(false);
-  const [usedKeys, setUsedKeys] = useState({})
+  const [usedKeys, setUsedKeys] = useState({});
 
   // format a guess into an array of letter objects
   // e.g. [{key: 'a', color: 'yellow'}]
@@ -18,7 +18,7 @@ const useWordle = (solution) => {
     // Percorre o array de palavras que você digitou
     // então percorre o array de letras da palavra e por padrão as define como 'grey'
     let formattedGuess = [...currentGuess].map((l) => {
-      return { key: l, color: "grey"};
+      return { key: l, color: "grey" };
     });
 
     //find any green letters
@@ -51,7 +51,7 @@ const useWordle = (solution) => {
     setGuesses((prevGuesses) => {
       let newGuesses = [...prevGuesses];
       newGuesses[turn] = formattedGuess;
-      
+
       return newGuesses;
     });
 
@@ -64,28 +64,31 @@ const useWordle = (solution) => {
     });
 
     setUsedKeys((prevUsedKeys) => {
-      let newKeys = { ...prevUsedKeys }
+      let newKeys = { ...prevUsedKeys };
 
       formattedGuess.forEach((l) => {
-        const currentColor = newKeys[l.key]
+        const currentColor = newKeys[l.key];
 
-        if (l.color === 'green') {
-          newKeys[l.key] = 'green'
-          return
+        if (l.color === "green") {
+          newKeys[l.key] = "green";
+          return;
         }
-        if (l.color === 'yellow' && currentColor !== 'green') { 
-          newKeys[l.key] = 'yellow'
-          return 
+        if (l.color === "yellow" && currentColor !== "green") {
+          newKeys[l.key] = "yellow";
+          return;
         }
-        if (l.color === 'grey' && currentColor !== 'green' && currentColor !== 'yellow') {
-          newKeys[l.key] = 'grey'
-          return
+        if (
+          l.color === "grey" &&
+          currentColor !== "green" &&
+          currentColor !== "yellow"
+        ) {
+          newKeys[l.key] = "grey";
+          return;
         }
-      })
+      });
 
-      return newKeys
-
-    })
+      return newKeys;
+    });
     setCurrentGuess("");
   };
 

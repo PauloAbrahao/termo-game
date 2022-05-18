@@ -1,19 +1,27 @@
-import React from 'react'
+import React from "react";
 
 const Row = ({ guess, currentGuess }) => {
+  // const [active, setActive] = React.useState(false)
+
+  // const handleClick = () => {
+  //   console.log('click')
+  //   setActive(!active)
+  // }
 
   if (guess) {
     return (
       <div className="row past">
         {guess.map((l, i) => (
-          <div key={i} className={l.color}>{l.key}</div>
+          <div key={i} className={l.color}>
+            {l.key}
+          </div>
         ))}
       </div>
-    )
+    );
   }
 
   if (currentGuess) {
-    let letters = currentGuess.split('')
+    let letters = currentGuess.split("");
 
     return (
       <div className="row current">
@@ -21,12 +29,13 @@ const Row = ({ guess, currentGuess }) => {
           <div key={i} className="filled">
             {letter}
           </div>
-        ))}  
+        ))}
+
         {[...Array(5 - letters.length)].map((v, i) => (
           <div key={i}></div>
         ))}
       </div>
-    )
+    );
   }
 
   return (
@@ -37,8 +46,7 @@ const Row = ({ guess, currentGuess }) => {
       <div></div>
       <div></div>
     </div>
-  )
-  
-}
+  );
+};
 
 export default Row;
