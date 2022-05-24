@@ -101,6 +101,7 @@ h1 {
   display: inline-block;
   border-radius: 6px;
   line-height: 50px;
+  cursor: pointer;
 }
 
 .keypad > div.green {
@@ -119,6 +120,11 @@ h1 {
   background: #a1a1a1;
   color: #fff;
   transition: all 0.3s ease-in;
+}
+
+.keypad > div:nth-child(21),
+.keypad > div:nth-child(28) {
+  width: 80px;
 }
 
 .modal {
