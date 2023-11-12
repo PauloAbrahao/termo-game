@@ -1,14 +1,12 @@
 import React from "react";
 
+import data from "../data/db.json";
+
 const Keypads = ({ usedKeys, setCurrentGuess, currentGuess }) => {
   const [letters, setLetters] = React.useState(null);
 
   React.useEffect(() => {
-    fetch("http://localhost:3001/letters")
-      .then((res) => res.json())
-      .then((json) => {
-        setLetters(json);
-      });
+    setLetters(data.letters);
   }, []);
 
   // const handleClick = (e) => {
