@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/termo-game/static/css/main.25359391.css",
-    "main.js": "/termo-game/static/js/main.ce003c70.js",
+    "main.css": "/termo-game/static/css/main.b9e38e16.css",
+    "main.js": "/termo-game/static/js/main.c073b9f0.js",
     "index.html": "/termo-game/index.html",
-    "main.25359391.css.map": "/termo-game/static/css/main.25359391.css.map",
-    "main.ce003c70.js.map": "/termo-game/static/js/main.ce003c70.js.map"
+    "main.b9e38e16.css.map": "/termo-game/static/css/main.b9e38e16.css.map",
+    "main.c073b9f0.js.map": "/termo-game/static/js/main.c073b9f0.js.map"
   },
   "entrypoints": [
-    "static/css/main.25359391.css",
-    "static/js/main.ce003c70.js"
+    "static/css/main.b9e38e16.css",
+    "static/js/main.c073b9f0.js"
   ]
 }
