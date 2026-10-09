@@ -38,7 +38,7 @@ export default function Wordle({ solution }) {
   }, [handleKeyup, isCorrect, turn]);
 
   return (
-    <div>
+    <div className="game">
       <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
       <Keypads
         usedKeys={usedKeys}
